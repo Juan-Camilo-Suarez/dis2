@@ -2,20 +2,16 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dis2</artifactId>
+        <groupId>ru.itis</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.itis</groupId>
-    <artifactId>dis2</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>s2_lab2</module>
-        <module>Pruebitas</module>
-        <module>s2_lab__3</module>
-        <module>s2_lab_1</module>
-    </modules>
+    <artifactId>s2_lab_1</artifactId>
 
-    <name>dis2</name>
+    <name>s2_lab_1</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -78,5 +74,15 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
