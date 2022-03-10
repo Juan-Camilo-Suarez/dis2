@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-class Users {
+public class Users {
     @Id
     Long id;
     @Column
