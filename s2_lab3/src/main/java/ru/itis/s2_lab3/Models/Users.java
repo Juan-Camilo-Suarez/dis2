@@ -16,6 +16,6 @@ public class Users {
     @Column
     String role;
     @ManyToOne
-    Groups group;
+    Groups group_id;
 
 }
