@@ -3,8 +3,9 @@ package ru.itis.s2_lab4.orm;
 public interface EntityManager {
     /**
      * Метод сохраняет в БД объект var1
+     * @return
      */
-    void persist(Object var1) throws Exception;//SQL insert
+    String persist(Object var1) throws Exception;//SQL insert
 
     /**
      * Метод обновляет в БД данные, соответствующие объекту

@@ -21,6 +21,11 @@ public class EntityManagerFactory {
     private Map<String, Map<String, Class>> structureDB = new HashMap<>();
 
     public EntityManagerFactory() {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void scanDB() throws SQLException {
@@ -41,6 +46,12 @@ public class EntityManagerFactory {
     }
 
     public EntityManagerFactory(CharSequence url) {
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         this.url = url;
     }
 
@@ -52,11 +63,11 @@ public class EntityManagerFactory {
         return connection;
     }
 
-    public EntityManager getEntityManager() {
+    public EntityManager getEntityManager() throws SQLException {
         Long id = Thread.currentThread().getId();
         EntityManager em = entityManagerMap.get(id);
         if (em == null) {
-            em = new EntityManagerImpl();
+            em = new EntityManagerImpl(getConnection());
         }
         return em;
     }

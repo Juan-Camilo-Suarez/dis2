@@ -18,6 +18,6 @@ public class Config {
 
     @Bean
     public CharSequence getUrl () {
-        return "url";
+        return "jdbc:postgresql://localhost:5432/orm";
     }
 }
