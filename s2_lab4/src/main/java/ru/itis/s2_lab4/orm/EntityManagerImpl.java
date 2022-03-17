@@ -1,8 +1,12 @@
 package ru.itis.s2_lab4.orm;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import static ru.itis.s2_lab4.ScanDB.getConnection;
@@ -72,6 +76,50 @@ public class EntityManagerImpl implements EntityManager {
 
     @Override
     public <T> T find(Class<T> var1, Object var2) {
+
+        String[] splitteda = var1.getName().toLowerCase(Locale.ROOT).split("\\.");
+
+        String table_name = String.format("%s", splitteda[splitteda.length - 1].toLowerCase());
+        System.out.println(table_name);
+
+        try (Connection connection = getConnection()){
+            PreparedStatement st = connection.prepareStatement("SELECT * from " + table_name + " where id = "
+                    + var2);
+            ResultSet resultSet = st.executeQuery();
+            if (resultSet.next()) {
+                System.out.println(resultSet.getInt("id") + resultSet.getString("name")+ resultSet.getString("password") +
+                        resultSet.getString("role") + resultSet.getInt("group_id"));
+                /*
+                T result = (T) ((Class<?>) var1).getDeclaredConstructor().newInstance();
+                List<T> fields = List.of((T) ((Class<?>) var1).getDeclaredFields());
+                for (T a:fields) {
+                    System.out.println(a);
+                }
+
+                 */
+                Object object = ((Class<?>) var1).getDeclaredConstructor().newInstance();
+                for (Field field : object.getClass().getDeclaredFields()) {
+                    String dbColumn_name = field.getName();
+                    System.out.println("*****" +  dbColumn_name + "   " + field.getType());
+                    field.setAccessible(true);
+                    if (field.getType().equals(String.class))
+                        field.set(object, resultSet.getString(dbColumn_name));
+                    else if (field.getType().equals(int.class))
+                        field.set(object, resultSet.getInt(dbColumn_name));
+                    else if (field.getType().equals(java.lang.Long.class))
+                        field.set(object, resultSet.getLong(dbColumn_name));
+
+                }
+                System.out.println(object);
+                return (T) object;
+
+            }
+
+
+        } catch (SQLException | ClassNotFoundException | InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
         /*
             var2 - id (primary key value)
             var1 - type of Object
