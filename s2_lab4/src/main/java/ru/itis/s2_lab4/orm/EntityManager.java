@@ -10,7 +10,7 @@ public interface EntityManager {
     /**
      * Метод обновляет в БД данные, соответствующие объекту
      */
-    <T> T merge(T var1); //SQL update ...
+    <T> T merge(T var1, Object var2); //SQL update ...
 
     /**
      * Метод удаляет объект из БД

@@ -46,11 +46,11 @@ public class DbController {
         System.out.println(id);
 
         Users user = em.find(Users.class, id);
-        /*
+        System.out.println(user);
         user.setName("pedro");
-        em.merge(user);
+        //System.out.println(user);
+        em.merge(user, id);
 
-         */
 
 
         entityManagerFactory.closeEntityManager();
