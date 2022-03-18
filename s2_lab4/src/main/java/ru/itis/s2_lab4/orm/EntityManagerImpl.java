@@ -86,8 +86,8 @@ public class EntityManagerImpl implements EntityManager {
                        + set1 + " WHERE id =" + var2 + "returning name");
                ResultSet resultSet = st.executeQuery();
                if (resultSet.next()) {
-                   id = resultSet.getInt(1);
-                   System.out.println(resultSet.getInt(1));
+                   //id = resultSet.getInt(1);
+                   System.out.println(resultSet.getString(1));
                }
 
 
