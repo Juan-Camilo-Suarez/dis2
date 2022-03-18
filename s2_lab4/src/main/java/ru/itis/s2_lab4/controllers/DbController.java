@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ru.itis.s2_lab4.orm.EntityManager;
 import ru.itis.s2_lab4.orm.EntityManagerFactory;
 
@@ -56,6 +57,17 @@ public class DbController {
         entityManagerFactory.closeEntityManager();
 
     }
+    @RequestMapping(value = "/remove")
+    @ResponseBody
+    public String getBarBySimplePathWithRequestParam(@RequestParam("id") long id) throws SQLException {
+        EntityManager em = entityManagerFactory.getEntityManager();
+        System.out.println(id);
+
+        Users user = em.find(Users.class, id);
+        System.out.println(user);
+        em.remove(user);
+
+        return "this elemen was deleted id=" + id;
 
 
-}
+    }}

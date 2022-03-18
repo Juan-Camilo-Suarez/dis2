@@ -101,11 +101,19 @@ public class EntityManagerImpl implements EntityManager {
 
     @Override
     public void remove(Object var1) {
-        /*
-            if (!objects.contains(var1)) new throws ...
-            var1.class -> table name -> SQL: delete from tableName where pkName = var1.getId()
-            objects.remove(var1);
-         */
+        String[] splitteda = var1.getClass().getName().toLowerCase(Locale.ROOT).split("\\.");
+        String table_name = String.format("%s", splitteda[splitteda.length - 1].toLowerCase());
+
+
+        try (Connection connection = getConnection()){
+            Field field = var1.getClass().getDeclaredField("id");
+            field.setAccessible(true);
+            Object id = field.get(var1);
+            PreparedStatement st = connection.prepareStatement(" DELETE FROM " + table_name + " WHERE id = " + id);
+            System.out.println("all is ok");
+        } catch (SQLException | ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
