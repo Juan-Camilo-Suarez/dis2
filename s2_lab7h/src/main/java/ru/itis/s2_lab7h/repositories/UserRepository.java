@@ -22,7 +22,7 @@ public class UserRepository {
     }
     private List<User> users = new ArrayList<>();
 
-    public List<User> findAll () {
+    public static List<User> findAll () {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Query query = entityManager.createQuery("select u from User u");
         List<User> users = query.getResultList();
@@ -47,6 +47,7 @@ public class UserRepository {
         System.out.println(user);
         if (user.getId() != null) {
             User tmp = entityManager.find(User.class, user.getId());
+            System.out.println("paso");
             if (tmp != null) {
                 entityManager.merge(user);
                 return user;

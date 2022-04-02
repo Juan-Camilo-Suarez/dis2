@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="pruebitas_lab3" />
-        <module name="s2_lab7_1" />
         <module name="s2_lab7h" />
         <module name="s2_lab_1" />
         <module name="s2_lab7" />
@@ -16,12 +15,17 @@
         <module name="s2_lab3" />
         <module name="s2_lab4" />
         <module name="Pruebitas" />
+        <module name="demo" />
         <module name="s2_lab__3" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="s2_lab7_1" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
       <module name="pruebitas_lab3" options="-parameters" />
       <module name="s2_lab3" options="-parameters" />
       <module name="s2_lab4" options="-parameters" />

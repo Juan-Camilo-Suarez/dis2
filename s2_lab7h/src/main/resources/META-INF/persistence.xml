@@ -5,6 +5,8 @@
     <persistence-unit name="lab7">
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>ru.itis.s2_lab7h.models.Role</class>
+        <class>ru.itis.s2_lab7h.models.User</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/lab7"/>

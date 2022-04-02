@@ -1,10 +1,10 @@
-package ru.itis.s2_lab7_1;
+package ru.itis.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class S2Lab71ApplicationTests {
+class DemoApplicationTests {
 
     @Test
     void contextLoads() {
