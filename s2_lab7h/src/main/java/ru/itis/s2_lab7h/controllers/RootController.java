@@ -34,12 +34,12 @@ public class RootController {
     public String save( Model model) {
 
         User user = new User();
-        user.setId(5L);
+        //user.setId(5L);
         user.setName("camilo");
         user.setPassword("juan");
 
         Role role = new Role();
-        role.setId(5L);
+        //role.setId(5L);
         role.setName_role("teacher");
         role.setResource("www.hdsjfhsk.com");
         user.setRole(role);

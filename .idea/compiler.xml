@@ -11,6 +11,8 @@
         <module name="s2_lab7h" />
         <module name="s2_lab_1" />
         <module name="s2_lab7" />
+        <module name="demo_lab7" />
+        <module name="s2_lab10" />
         <module name="s2_lab2" />
         <module name="s2_lab3" />
         <module name="s2_lab4" />
@@ -26,7 +28,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demo" options="-parameters" />
+      <module name="demo_lab7" options="-parameters" />
       <module name="pruebitas_lab3" options="-parameters" />
+      <module name="s2_lab10" options="-parameters" />
       <module name="s2_lab3" options="-parameters" />
       <module name="s2_lab4" options="-parameters" />
       <module name="s2_lab7" options="-parameters" />
