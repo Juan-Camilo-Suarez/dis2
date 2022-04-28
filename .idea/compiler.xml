@@ -7,17 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="pruebitas_lab3" />
         <module name="s2_lab7h" />
         <module name="s2_lab_1" />
         <module name="s2_lab7" />
-        <module name="demo_lab7" />
-        <module name="s2_lab10" />
         <module name="s2_lab2" />
         <module name="s2_lab3" />
         <module name="s2_lab4" />
-        <module name="Pruebitas" />
+        <module name="sa2_lab10_simple" />
         <module name="demo" />
+        <module name="pruebitas_lab3" />
+        <module name="demo_lab7" />
+        <module name="s2_lab10" />
+        <module name="Pruebitas" />
         <module name="s2_lab__3" />
       </profile>
     </annotationProcessing>
@@ -36,6 +37,7 @@
       <module name="s2_lab7" options="-parameters" />
       <module name="s2_lab7_1" options="-parameters" />
       <module name="s2_lab7h" options="-parameters" />
+      <module name="sa2_lab10_simple" options="-parameters" />
     </option>
   </component>
 </project>
